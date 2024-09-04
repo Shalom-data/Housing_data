@@ -150,11 +150,12 @@ WHERE ROW_NUM >1
 
 ALTER TABLE Housing
 DROP COLUMN PropertyAddress,
-			LegalReference,
-			OwnerAddress,
-			TaxDistrict,
-			SaleDate
+	LegalReference,
+	OwnerAddress,
+	TaxDistrict,
+	SaleDate
 
-
+			
+--Now let's have a look at our final dataset and be sure it satisfies all criteria for further analysis
 SELECT *
 FROM Housing
