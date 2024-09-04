@@ -1,12 +1,17 @@
-----OURTASK IS TO CLEAN THIS DATA BY PERFORMING THE FOLLOWING TASKS
+----TASK 
+-----Clean this Nashville housing dataset to get it ready for further analysis, this will invole a lot of transformation process to get us the desired result.
+-----I will be performing the following tasks to get this data clean
+
 --1. Standardize the date format
 --2. Populate the missing values in the PropertyAddress column
 --3. Split the PropertyAddress column into 3 columns(Address,city,state)
 --4. Split the Ownership Address into it's individual columns
---5. Transform the SoldAsVacant column by changing Y to Yes and N to NO
+--5. Transform the SoldAsVacant column by changing Y to Yes and N to NO, this is more intuitive as Y & N can mean anything
 --6. Remove duplicates
 --7. Remove unused columns
 
+
+--Let's get a preview of our data and then add a new column 'date' to our dataset
 SELECT *,CONVERT(date,SaleDate) AS New_date
 FROM Housing
 
@@ -18,8 +23,7 @@ SET New_date = CONVERT(date,SaleDate)
 
 
 --Populate the PropertyAdress column
---we will perform a self join here in order to compare columns from the same table, this will help us check if the parcel id matches 
---with the propertyaddress
+--we will perform a self join here in order to compare columns from the same table, this will help us check if the parcel id matches with the propertyaddress
 
 SELECT a.ParcelID,a.PropertyAddress,b.ParcelID,b.PropertyAddress
 FROM Housing a
